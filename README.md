@@ -2,33 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version:
 
-     _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/
-    
-
 Angular CLI: 17.0.7
 Node: 20.10.0
-Package Manager: npm 10.2.3
-OS: win32 x64
-
-Angular: 17.0.7
-... animations, cli, common, compiler, compiler-cli, core, forms
-... platform-browser, platform-browser-dynamic, router
-
-Package                         Version
----------------------------------------------------------
-@angular-devkit/architect       0.1700.7
-@angular-devkit/build-angular   17.0.7
-@angular-devkit/core            17.0.7
-@angular-devkit/schematics      17.0.7
-@schematics/angular             17.0.7
-rxjs                            6.6.7
-typescript                      5.2.2
-zone.js                         0.14.2
 
 ## Development server
 
