@@ -14,6 +14,10 @@
 	<name>escaping</name>
 	<description>Proyecto de Ingenieria I buscador de Hoteles</description>
 	<properties>
+		<!-- Set encoding to UTF-8 -->
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	    <project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
@@ -21,6 +25,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
+		<!-- MySQL Connector -->
+	    <dependency>
+	        <groupId>mysql</groupId>
+	        <artifactId>mysql-connector-java</artifactId>
+	        <scope>runtime</scope>
+	         <version>8.0.23</version>
+	    </dependency>
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-security</artifactId>-->
@@ -37,10 +49,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
-		<dependency>
-		    <groupId>org.postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--		    <groupId>org.postgresql</groupId>-->
+<!--		    <artifactId>postgresql</artifactId>-->
+<!--		</dependency>-->
 		
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
