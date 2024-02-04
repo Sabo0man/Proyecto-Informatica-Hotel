@@ -26,10 +26,10 @@ public class UsuarioController {
 		
 		List<String> response = usuarioService.addUser(userData);
 		if(response.size() == 0) {
-			return ResponseEntity.ok(response.add("El usuario se registro correctamente"));
+			return ResponseEntity.ok(null);
 		}
 		else {
-			return ResponseEntity.badRequest().body(response));
+			return ResponseEntity.badRequest().body(null);
 		}
 		
 	}

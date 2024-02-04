@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
 @Entity
 public class UserRequest {
-
+	@Id
 	private String dni;
 	private String nombre;
 	private String apellidos;

@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -34,6 +35,11 @@ public class Hotel implements Serializable {
 
 	@Column(name = "telefono", length = 20)
 	private String telefono;
+	
+	@Lob
+	@Column(name = "imagen", length = 20)
+	private Byte[] imagen;
+
 
 	/*@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_localidades")
@@ -48,64 +54,111 @@ public class Hotel implements Serializable {
 	@JoinColumn(name = "id_categoria")
 	private Categoria id_categoria;
 
-	public Integer getId_hotel() {
-		return id_hotel;
-	}
+	
 
-	public void setId_hotel(Integer id_hotel) {
-		this.id_hotel = id_hotel;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public Integer getLocalidadId() {
-		return localidadId;
-	}
-
-	public void setLocalidadId(Integer localidadId) {
-		this.localidadId = localidadId;
-	}
-
-	public Categoria getId_categoria() {
-		return id_categoria;
-	}
-
-	public void setId_categoria(Categoria id_categoria) {
-		this.id_categoria = id_categoria;
-	}
-
-	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, Integer localidadId,
+	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, Byte[] imagen, Integer localidadId,
 			Categoria id_categoria) {
 		super();
 		this.id_hotel = id_hotel;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		this.imagen = imagen;
 		this.localidadId = localidadId;
 		this.id_categoria = id_categoria;
 	}
+
+
+
+	public Integer getId_hotel() {
+		return id_hotel;
+	}
+
+
+
+	public void setId_hotel(Integer id_hotel) {
+		this.id_hotel = id_hotel;
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+
+	public Byte[] getImagen() {
+		return imagen;
+	}
+
+
+
+	public void setImagen(Byte[] imagen) {
+		this.imagen = imagen;
+	}
+
+
+
+	public Integer getLocalidadId() {
+		return localidadId;
+	}
+
+
+
+	public void setLocalidadId(Integer localidadId) {
+		this.localidadId = localidadId;
+	}
+
+
+
+	public Categoria getId_categoria() {
+		return id_categoria;
+	}
+
+
+
+	public void setId_categoria(Categoria id_categoria) {
+		this.id_categoria = id_categoria;
+	}
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 
 	public Hotel() {
 		super();
