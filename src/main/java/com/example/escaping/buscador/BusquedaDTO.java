@@ -2,22 +2,30 @@ package com.example.escaping.buscador;
 import java.sql.Date;
 
 public class BusquedaDTO {
-    private Long localidadId;
-    private Long provinciaId;
+    private Integer id_localidades;
+    private Long id_provincia;
 	
-    public Long getLocalidadId() {
-		return localidadId;
+    
+    
+    public BusquedaDTO(Integer id_localidades, Long id_provincia) {
+		super();
+		this.id_localidades = id_localidades;
+		this.id_provincia = id_provincia;
 	}
-	public void setLocalidadId(Long localidadId) {
-		this.localidadId = localidadId;
+	public Integer getId_localidades() {
+		return id_localidades;
 	}
-	public Long getProvinciaId() {
-		return provinciaId;
+	public void setId_localidades(Integer id_localidades) {
+		this.id_localidades = id_localidades;
 	}
-	public void setProvinciaId(Long provinciaId) {
-		this.provinciaId = provinciaId;
+	public Long getId_provincia() {
+		return id_provincia;
 	}
-
+	public void setId_provincia(Long id_provincia) {
+		this.id_provincia = id_provincia;
+	}
+	
+   
     // Constructor, Getters y Setters
 }
 

@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 import com.example.escaping.data.model.Hotel;
 import com.example.escaping.data.model.Localidades;
 @Repository
-public interface LocalidadRepository extends JpaRepository<Hotel, Long> {
-    @Query("FROM Hotel h WHERE h.id_localidades = ?1")
-    List<AlojamientoDTO> findAlojamientosByLocalidadId(@Param("localidadId") Long localidadId);
+public interface LocalidadRepository extends JpaRepository<Hotel, Integer> {
+    //@Query("FROM Hotel h WHERE h.id_localidades = ?1")
+	
+	@Query("FROM Hotel h WHERE h.localidadId = ?1")
+	List<Hotel> findAlojamientosByLocalidad(Integer localidadId);
 }
 

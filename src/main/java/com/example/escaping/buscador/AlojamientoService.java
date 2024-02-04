@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.escaping.data.model.Hotel;
+
 @Service
 public class AlojamientoService {
 
@@ -14,13 +16,13 @@ public class AlojamientoService {
 	@Autowired
 	private ProvinciaRepository provinciaRepository;
 
-	public List<AlojamientoDTO> buscarPorLocalidadOProvincia(BusquedaDTO busquedaDTO) {
-		List<AlojamientoDTO> resultados = new ArrayList<>();
+	public List<Hotel> buscarPorLocalidadOProvincia(BusquedaDTO busquedaDTO) {
+		List<Hotel> resultados = new ArrayList<>();
 
-		if (busquedaDTO.getLocalidadId() != null) {
+		if (busquedaDTO.getId_localidades() != null) {
 			// Buscar "hoteles" por localidad
-			resultados.addAll(localidadRepository.findAlojamientosByLocalidadId(busquedaDTO.getLocalidadId()));
-		} else if (busquedaDTO.getProvinciaId() != null) {
+			return localidadRepository.findAlojamientosByLocalidad(busquedaDTO.getId_localidades());
+		} else if (busquedaDTO.getId_provincia() != null) {
 			// Buscar "hoteles" por provincia
 			// resultados.addAll(provinciaRepository.findAlojamientosByProvinciaId(busquedaDTO.getProvinciaId()));
 		}
@@ -28,3 +30,30 @@ public class AlojamientoService {
 		return resultados;
 	}
 }
+
+
+
+/*  
+@Service
+public class AlojamientoService {
+
+    @Autowired
+    private HotelRepository hotelRepository; // Asume que tienes un repositorio para Hotel
+
+    public List<AlojamientoDTO> buscarPorLocalidadOProvincia(BusquedaDTO busquedaDTO) {
+        List<AlojamientoDTO> resultados = new ArrayList<>();
+        if (busquedaDTO.getIdLocalidad() != null) {
+            // Implementa la búsqueda en HotelRepository por localidad
+            List<Hotel> hoteles = hotelRepository.findByLocalidadId(busquedaDTO.getIdLocalidad());
+            for (Hotel hotel : hoteles) {
+                resultados.add(new AlojamientoDTO(hotel.getNombre(), hotel.getDireccion(), hotel.getTelefono()));
+            }
+        } else if (busquedaDTO.getIdProvincia() != null) {
+            // Implementa la búsqueda en HotelRepository por provincia
+            // Asumiendo que tienes la lógica para esto, posiblemente necesites unir tablas entre localidades y provincias
+        }
+        return resultados;
+    }
+}
+
+ */
