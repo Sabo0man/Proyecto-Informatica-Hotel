@@ -1,6 +1,9 @@
 # Escaping
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.18.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version:
+
+Angular CLI: 17.0.7
+Node: 20.10.0
 
 ## Development server
 
