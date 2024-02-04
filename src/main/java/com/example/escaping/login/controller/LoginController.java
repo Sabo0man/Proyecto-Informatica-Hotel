@@ -1,11 +1,7 @@
 package com.example.escaping.login.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +11,7 @@ import com.example.escaping.login.model.LoginData;
 import com.example.escaping.login.service.LoginService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/login")
 public class LoginController {
 
 	private LoginService loginService;
@@ -24,7 +20,7 @@ public class LoginController {
 		this.loginService = loginService;
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/")
 	public ResponseEntity<LoginData> login(@RequestBody LoginData loginData) {
 		LoginData response = loginService.getLogginData(loginData);
         if (response != null) {
