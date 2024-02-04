@@ -1,0 +1,13 @@
+.cabecera {
+    background-color: blue;
+    padding: 10,10,10,10;
+}
+
+
+/* Estilo para el logo dentro de la cabecera */
+.cabecera img {
+    height: 100%; /* Hace que el logo ocupe todo el alto de la cabecera */
+    width: auto; /* Mantiene la proporción del logo */
+    padding-left: 4em; /* Aumenta el padding izquierdo para incluir la separación */
+    display: flex;
+}
