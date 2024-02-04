@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Localidades {
 
     @Id
-    private Long id;
+    private Integer id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_localidades")
     private Integer id_localidades;
@@ -21,13 +21,30 @@ public class Localidades {
 
     @Column(name = "id_provincia")
     private Integer id_provincia;
+    
+    public Localidades(Integer id, Integer id_localidades, String nombre, Integer id_provincia) {
+		super();
+		this.id = id;
+		this.id_localidades = id_localidades;
+		this.nombre = nombre;
+		this.id_provincia = id_provincia;
+	}
 
-	public Integer getIdLocalidades() {
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getId_localidades() {
 		return id_localidades;
 	}
 
-	public void setIdLocalidades(Integer idLocalidades) {
-		this.id_localidades = idLocalidades;
+	public void setId_localidades(Integer id_localidades) {
+		this.id_localidades = id_localidades;
 	}
 
 	public String getNombre() {
@@ -38,13 +55,16 @@ public class Localidades {
 		this.nombre = nombre;
 	}
 
-	public Integer getIdProvincia() {
+	public Integer getId_provincia() {
 		return id_provincia;
 	}
 
-	public void setIdProvincia(Integer idProvincia) {
-		this.id_provincia = idProvincia;
+	public void setId_provincia(Integer id_provincia) {
+		this.id_provincia = id_provincia;
 	}
+
+	
+	
 
     // Getters and setters (you can generate them automatically)
 

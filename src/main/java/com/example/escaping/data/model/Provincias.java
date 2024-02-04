@@ -14,17 +14,25 @@ public class Provincias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categorias")
-    private Integer idCategorias;
+    private Integer id_categorias;
 
     @Column(name = "nombre", length = 50)
     private String nombre;
+    
+    
 
-	public Integer getIdCategorias() {
-		return idCategorias;
+	public Provincias(Integer id_categorias, String nombre) {
+		super();
+		this.id_categorias = id_categorias;
+		this.nombre = nombre;
 	}
 
-	public void setIdCategorias(Integer idCategorias) {
-		this.idCategorias = idCategorias;
+	public Integer getId_categorias() {
+		return id_categorias;
+	}
+
+	public void setId_categorias(Integer id_categorias) {
+		this.id_categorias = id_categorias;
 	}
 
 	public String getNombre() {
@@ -34,6 +42,8 @@ public class Provincias {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	
 
 	
 

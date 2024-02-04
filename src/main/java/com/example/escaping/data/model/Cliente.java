@@ -50,6 +50,25 @@ public class Cliente {
 
     @Column(name = "localidad")
     private Integer localidad;
+    
+    
+
+	public Cliente(String dni, String nombre, String apellidos, String direccion, String telefono, String sexo,
+			String email, Integer edad, String usuario, String password, Integer provincias, Integer localidad) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.sexo = sexo;
+		this.email = email;
+		this.edad = edad;
+		this.usuario = usuario;
+		this.password = password;
+		this.provincias = provincias;
+		this.localidad = localidad;
+	}
 
 	public String getDni() {
 		return dni;

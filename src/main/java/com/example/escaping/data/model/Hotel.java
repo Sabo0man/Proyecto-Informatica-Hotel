@@ -1,5 +1,7 @@
 package com.example.escaping.data.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,7 +14,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "hotel")
-public class Hotel {
+public class Hotel implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,17 +35,18 @@ public class Hotel {
 	@Column(name = "telefono", length = 20)
 	private String telefono;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	/*@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_localidades")
-	@Column(name = "id_localidades", length = 20)
-	private Localidades id_localidades;
+	//@Column(name = "id_localidades", length = 20)
+	private Localidades id_localidades;*/
+	
+	@Column(name = "id_localidades")    
+	private Integer localidadId;
+	// Este es el nombre de la propiedad que debes usar en tu consulta
 
-	@Column(name = "id_categoria")
-	private Integer id_categoria;
-
-	// Constructor sin argumentos
-	public Hotel() {
-	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_categoria")
+	private Categoria id_categoria;
 
 	public Integer getId_hotel() {
 		return id_hotel;
@@ -72,32 +80,42 @@ public class Hotel {
 		this.telefono = telefono;
 	}
 
-	public Localidades getId_localidades() {
-		return id_localidades;
+	public Integer getLocalidadId() {
+		return localidadId;
 	}
 
-	public void setId_localidades(Localidades id_localidades) {
-		this.id_localidades = id_localidades;
+	public void setLocalidadId(Integer localidadId) {
+		this.localidadId = localidadId;
 	}
 
-	public Integer getId_categoria() {
+	public Categoria getId_categoria() {
 		return id_categoria;
 	}
 
-	public void setId_categoria(Integer id_categoria) {
+	public void setId_categoria(Categoria id_categoria) {
 		this.id_categoria = id_categoria;
 	}
 
-	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, Localidades id_localidades,
-			Integer id_categoria) {
+	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, Integer localidadId,
+			Categoria id_categoria) {
 		super();
 		this.id_hotel = id_hotel;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.id_localidades = id_localidades;
+		this.localidadId = localidadId;
 		this.id_categoria = id_categoria;
 	}
+
+	public Hotel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	
+
+	
 
 	// Getters y setters
 

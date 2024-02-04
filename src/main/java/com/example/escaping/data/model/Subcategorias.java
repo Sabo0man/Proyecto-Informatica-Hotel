@@ -14,20 +14,28 @@ public class Subcategorias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_subcat")
-    private Integer idSubcat;
+    private Integer id_subcat;
 
     @Column(name = "nombre", length = 36)
     private String nombre;
     
     @Column(name = "id_categoria", length = 36)
-    private Integer idCategoria;
-
-	public Integer getIdSubcat() {
-		return idSubcat;
+    private Integer id_categoria;
+    
+    public Subcategorias(Integer id_subcat, String nombre, Integer id_categoria) {
+		super();
+		this.id_subcat = id_subcat;
+		this.nombre = nombre;
+		this.id_categoria = id_categoria;
 	}
 
-	public void setIdSubcat(Integer idSubcat) {
-		this.idSubcat = idSubcat;
+
+	public Integer getId_subcat() {
+		return id_subcat;
+	}
+
+	public void setId_subcat(Integer id_subcat) {
+		this.id_subcat = id_subcat;
 	}
 
 	public String getNombre() {
@@ -38,13 +46,16 @@ public class Subcategorias {
 		this.nombre = nombre;
 	}
 
-	public Integer getIdCategoria() {
-		return idCategoria;
+	public Integer getId_categoria() {
+		return id_categoria;
 	}
 
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setId_categoria(Integer id_categoria) {
+		this.id_categoria = id_categoria;
 	}
+
+	
+	
 
 	
     // Getters and setters (you can generate them automatically)
