@@ -1,28 +1,72 @@
 package com.example.escaping.usuario.model;
 
-import java.time.LocalDate;
-import java.util.Objects;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 @Entity
 public class UserRequest {
-	@Id
-	private String dni;
-	private String nombre;
-	private String apellidos;
-	private String direccion;
-	private String telefono;
-	private String sexo;
-	private String email;
-	private LocalDate fecha_nacimiento;
-	private String usuario;
-	private String password;
-	private String localidad;
-	private String provincia;
+    @Id
+    @NotBlank(message = "El DNI no puede estar vacío")
+    @Pattern(regexp = "\\d{8}[A-HJ-NP-TV-Z]", message = "Formato de DNI no válido")
+    private String dni;
+
+    @NotBlank(message = "El nombre no puede estar vacío")
+    private String nombre;
+
+    @NotBlank(message = "Los apellidos no pueden estar vacíos")
+    private String apellidos;
+
+    @NotBlank(message = "La dirección no puede estar vacía")
+    private String direccion;
+
+    @NotBlank(message = "El teléfono no puede estar vacío")
+    @Pattern(regexp = "^\\+?\\d{9,15}$", message = "Formato de teléfono no válido")
+    private String telefono;
+
+    @NotBlank(message = "El sexo no puede estar vacío")
+    private String sexo;
+
+    @Email(message = "Formato de email no válido")
+    private String email;
+
+    @NotBlank(message = "El usuario no puede estar vacío")
+    private String usuario;
+
+    @NotBlank(message = "La contraseña no puede estar vacía")
+    @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
+    private String password;
+
+    @NotBlank(message = "La localidad no puede estar vacía")
+    private String localidad;
+
+    @NotBlank(message = "La provincia no puede estar vacía")
+    private String provincia;
+
+    // Constructor por defecto necesario para JPA
+    public UserRequest() {
+    }
+
+    // Constructor con todos los argumentos, omitiendo fecha_nacimiento
+    public UserRequest(String dni, String nombre, String apellidos, String direccion, String telefono, String sexo,
+                       String email, String usuario, String password, String localidad, String provincia) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.sexo = sexo;
+        this.email = email;
+        this.usuario = usuario;
+        this.password = password;
+        this.localidad = localidad;
+        this.provincia = provincia;
+    }
 
 	public String getDni() {
 		return dni;
@@ -80,14 +124,6 @@ public class UserRequest {
 		this.email = email;
 	}
 
-	public LocalDate getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-
-	public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
-
 	public String getUsuario() {
 		return usuario;
 	}
@@ -119,47 +155,8 @@ public class UserRequest {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
+    
+    
 
-	public UserRequest(String dni, String nombre, String apellidos, String direccion, String telefono, String sexo,
-			String email, LocalDate fecha_nacimiento, String usuario, String password, String localidad,
-			String provincia) {
-		super();
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.sexo = sexo;
-		this.email = email;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.usuario = usuario;
-		this.password = password;
-		this.localidad = localidad;
-		this.provincia = provincia;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(apellidos, direccion, dni, email, fecha_nacimiento, localidad, nombre, password, provincia,
-				sexo, telefono, usuario);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserRequest other = (UserRequest) obj;
-		return Objects.equals(apellidos, other.apellidos) && Objects.equals(direccion, other.direccion)
-				&& Objects.equals(dni, other.dni) && Objects.equals(email, other.email)
-				&& Objects.equals(fecha_nacimiento, other.fecha_nacimiento)
-				&& Objects.equals(localidad, other.localidad) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(password, other.password) && Objects.equals(provincia, other.provincia)
-				&& Objects.equals(sexo, other.sexo) && Objects.equals(telefono, other.telefono)
-				&& Objects.equals(usuario, other.usuario);
-	}
-
+    // Getters y setters, hashCode, equals, toString pueden ser generados por Lombok
 }
