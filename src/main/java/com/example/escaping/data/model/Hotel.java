@@ -38,7 +38,7 @@ public class Hotel implements Serializable {
 	
 	@Lob
 	@Column(name = "imagen", length = 20)
-	private Byte[] imagen;
+	private byte[] imagen;
 
 
 	/*@ManyToOne(fetch = FetchType.LAZY)
@@ -56,7 +56,10 @@ public class Hotel implements Serializable {
 
 	
 
-	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, Byte[] imagen, Integer localidadId,
+	
+
+
+	public Hotel(Integer id_hotel, String nombre, String direccion, String telefono, byte[] imagen, Integer localidadId,
 			Categoria id_categoria) {
 		super();
 		this.id_hotel = id_hotel;
@@ -70,9 +73,15 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public Integer getId_hotel() {
 		return id_hotel;
 	}
+
+
+
 
 
 
@@ -82,9 +91,15 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
+
+
 
 
 
@@ -94,9 +109,15 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public String getDireccion() {
 		return direccion;
 	}
+
+
+
 
 
 
@@ -106,9 +127,15 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public String getTelefono() {
 		return telefono;
 	}
+
+
+
 
 
 
@@ -118,15 +145,24 @@ public class Hotel implements Serializable {
 
 
 
-	public Byte[] getImagen() {
+
+
+
+	public byte[] getImagen() {
 		return imagen;
 	}
 
 
 
-	public void setImagen(Byte[] imagen) {
+
+
+
+	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
 	}
+
+
+
 
 
 
@@ -136,9 +172,15 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public void setLocalidadId(Integer localidadId) {
 		this.localidadId = localidadId;
 	}
+
+
+
 
 
 
@@ -148,15 +190,24 @@ public class Hotel implements Serializable {
 
 
 
+
+
+
 	public void setId_categoria(Categoria id_categoria) {
 		this.id_categoria = id_categoria;
 	}
 
 
 
+
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+
 
 
 
