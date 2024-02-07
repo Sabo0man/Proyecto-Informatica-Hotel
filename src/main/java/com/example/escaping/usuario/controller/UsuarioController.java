@@ -30,8 +30,8 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body(errors);
         }
         
-        List<String> response = usuarioService.addUser(userData);
-        if(response.isEmpty()) {
+        UserRequest response = usuarioService.addUser(userData);
+        if(response==null) {
             return ResponseEntity.ok("Usuario registrado con éxito");
         } else {
             return ResponseEntity.badRequest().body(response);

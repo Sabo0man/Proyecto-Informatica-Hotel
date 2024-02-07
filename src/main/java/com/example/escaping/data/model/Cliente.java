@@ -166,6 +166,13 @@ public class Cliente {
 		this.localidad = localidad;
 	}
 
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
     // Getters and setters (you can generate them automatically)
 
     // toString, hashCode, and equals methods can be included here if needed
