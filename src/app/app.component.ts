@@ -1,13 +1,45 @@
 import { Component } from '@angular/core';
-import { CabeceraComponent } from './cabecera/cabecera.component';
-import { ContenidoCentralComponent } from './contenido-central/contenido-central.component';
-import { PieDePaginaComponent } from './pie-de-pagina/pie-de-pagina.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],  
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'escaping';
+  tittle = 'PI';
+  adultos: number = 1; // Valor inicial para adultos
+  ninos: number = 0;  // Valor inicial para niños
+  habitaciones: number = 1; // Valor inicial para habitaciones
+
+  // Métodos para incrementar
+  incrementarAdultos() {
+    this.adultos++;
+  }
+
+  incrementarNinos() {
+    this.ninos++;
+  }
+
+  incrementarHabitaciones() {
+    this.habitaciones++;
+  }
+
+  // Métodos para decrementar
+  decrementarAdultos() {
+    if (this.adultos > 1) { // mínimo 1
+      this.adultos--;
+    }
+  }
+
+  decrementarNinos() {
+    if (this.ninos > 0) { // mínimo 0
+      this.ninos--;
+    }
+  }
+
+  decrementarHabitaciones() {
+    if (this.habitaciones > 1) { // mínimo 1
+      this.habitaciones--;
+    }
+  }
 }
