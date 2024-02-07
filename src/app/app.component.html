@@ -53,7 +53,7 @@
 </nav>
 
 <!-- Modal de Login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -78,7 +78,39 @@
       </div>
     </div>
   </div>
+</div> -->
+<!-- Modal de Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Añade el evento (ngSubmit) y #loginForm="ngForm" -->
+        <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+          <div class="mb-3">
+            <label for="usuarioEmail" class="form-label">Email</label>
+            <!-- Añade ngModel y nombre al input de email -->
+            <input type="email" class="form-control" id="usuarioEmail" name="username" aria-describedby="emailHelp" ngModel required>
+          </div>
+          <div class="mb-3">
+            <label for="usuarioPassword" class="form-label">Contraseña</label>
+            <!-- Añade ngModel y nombre al input de contraseña -->
+            <input type="password" class="form-control" id="usuarioPassword" name="password" ngModel required>
+          </div>
+          <!-- Añade type="button" para evitar el envío automático del formulario fuera de Angular -->
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <!-- Modal de Registro -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
