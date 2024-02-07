@@ -1,13 +1,13 @@
 package com.example.escaping.usuario.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-//import com.example.escaping.usuario.model.UserRequest;
-import com.example.escaping.usuario.repository.UsuarioRepository;
-import com.example.escaping.usuario.service.UsuarioService;
-import com.example.escaping.usuario.model.*;
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.escaping.usuario.model.UserRequest;
+import com.example.escaping.usuario.repository.UsuarioRepository;
+import com.example.escaping.usuario.service.UsuarioService;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -18,22 +18,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
-
+    @Transactional
     @Override
-    public UserRequest addUser(UserRequest userData) {
-        List<String> errores = new ArrayList<>();
-
-        // Verificar si el correo electrónico ya existe
-        usuarioRepository.findByEmail(userData.getEmail()).ifPresent(u -> errores.add("El usuario con este correo electrónico ya existe."));
-
-        // Si hay errores, retornar la lista de errores
-        if (!errores.isEmpty()) {
-            return null;
-        }
-
-        // Guardar el usuario en la base de datos si no hay errores
-        return usuarioRepository.save(userData);
-         // Lista vacía indica que no hubo errores
+    public List<String> addUser(UserRequest userData) {
+        // Directamente guardar el usuario en la base de datos sin comprobar si el DNI ya existe
+        usuarioRepository.save(userData);
+        
+        // Retornar una lista vacía para indicar que no hubo errores
+        return new ArrayList<>();
     }
 }
-

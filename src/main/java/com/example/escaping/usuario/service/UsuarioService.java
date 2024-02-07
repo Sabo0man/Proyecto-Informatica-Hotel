@@ -6,6 +6,7 @@ import com.example.escaping.usuario.model.UserRequest;
 
 public interface UsuarioService {
 
-	UserRequest addUser(UserRequest userData);
+	List<String> addUser(UserRequest userData);
 
 }
+
