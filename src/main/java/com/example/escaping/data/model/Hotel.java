@@ -46,7 +46,8 @@ public class Hotel implements Serializable {
 	//@Column(name = "id_localidades", length = 20)
 	private Localidades id_localidades;*/
 	
-	@Column(name = "id_localidades")    
+//	@Column(name = "id_localidades")    
+	@Column(name = "localidad")
 	private Integer localidadId;
 	// Este es el nombre de la propiedad que debes usar en tu consulta
 

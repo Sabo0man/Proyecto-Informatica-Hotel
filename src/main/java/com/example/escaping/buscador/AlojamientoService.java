@@ -18,14 +18,21 @@ public class AlojamientoService {
 
 	public List<Hotel> buscarPorLocalidadOProvincia(BusquedaDTO busquedaDTO) {
 		List<Hotel> resultados = new ArrayList<>();
-
-		if (busquedaDTO.getId_localidades() != null) {
+		
+		BusquedaDTO busquedaLoc = new BusquedaDTO();
+		
+		if (busquedaDTO.getCiudad() != null) {
 			// Buscar "hoteles" por localidad
-			return localidadRepository.findAlojamientosByLocalidad(busquedaDTO.getId_localidades());
-		} else if (busquedaDTO.getId_provincia() != null) {
-			// Buscar "hoteles" por provincia
-			// resultados.addAll(provinciaRepository.findAlojamientosByProvinciaId(busquedaDTO.getProvinciaId()));
+			busquedaLoc =  localidadRepository.findAlojamientosByLocalidad(busquedaDTO.getCiudad());
 		}
+		
+		if(null != busquedaLoc) {
+			return localidadRepository.findAlojamientosByLocalidad(busquedaLoc.getId_localidades());
+		}
+//		else if (busquedaDTO.getId_provincia() != null) {
+//			// Buscar "hoteles" por provincia
+//			// resultados.addAll(provinciaRepository.findAlojamientosByProvinciaId(busquedaDTO.getProvinciaId()));
+//		}
 
 		return resultados;
 	}
