@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SearchService } from './search.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -7,19 +8,19 @@ import { SearchService } from './search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  @Output() searchResults = new EventEmitter<any[]>(); 
   searchTerm: string = '';
 
   constructor(private searchService: SearchService) {}
 
-  search(): void {
+  submitSearch(): void {
     if (this.searchTerm) {
       this.searchService.search(this.searchTerm).subscribe(
-        (results) => {
-          // Haz algo con los resultados, como guardarlos en una variable
+        results => {
           console.log(results);
+          this.searchResults.emit(results);
         },
-        (error) => {
-          // Maneja el error
+        error => {
           console.error(error);
         }
       );

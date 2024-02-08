@@ -13,6 +13,7 @@ export class AppComponent {
   adultos: number = 1; // Valor inicial para adultos
   ninos: number = 0;  // Valor inicial para niños
   habitaciones: number = 1; // Valor inicial para habitaciones
+  results: any[] = [];
 
   constructor(private authService: AuthService) { }
 
@@ -32,6 +33,12 @@ export class AppComponent {
         console.error('Login failed', error);
       }
     );
+  }
+
+  handleSearchResults(results: any): void {
+    this.results = results;
+    console.log("Resultados recibidos en AppComponent:", this.results);
+    // Ahora puedes usar `results` en tu template para mostrarlos como desees
   }
 
   // Métodos para incrementar

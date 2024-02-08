@@ -7,11 +7,12 @@ import { SearchResult } from './search-result.model'; // Asegúrate de que la ru
   providedIn: 'root'
 })
 export class SearchService {
-  private apiUrl = 'http://localhost:8080'; // URL del backend
+  private apiUrl = 'http://localhost:8080/api'; // URL del backend
 
   constructor(private http: HttpClient) { }
 
-  search(query: string): Observable<SearchResult[]> {
-    return this.http.get<SearchResult[]>(`${this.apiUrl}/search?query=${query}`);
+  search(query: string): Observable<any> {
+    const body = {id_localidades: null, ciudad: query};
+    return this.http.post<any>(`${this.apiUrl}`, body);
   }
 }
