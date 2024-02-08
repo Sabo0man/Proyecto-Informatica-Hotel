@@ -144,75 +144,35 @@
   </div>
 </div>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand d-lg-none" href="#">Escaping</a>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+      <ul class="navbar-nav d-lg-none">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Características</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Precios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Acerca de</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col">
-      <h2>Busca tu nueva estancia</h2>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-3">
-      <label for="destino" class="form-label">¿A dónde vas?</label>
-      <input class="form-control" type="text" id="destino" placeholder="Escribe un destino" aria-label="Destino">
-    </div>
-    <div class="col-md-2">
-      <label for="fechaEntrada" class="form-label">Fecha de entrada</label>
-      <input class="form-control" type="date" id="fechaEntrada" aria-label="Fecha de entrada">
-    </div>
-    <div class="col-md-2">
-      <label for="fechaSalida" class="form-label">Fecha de salida</label>
-      <input class="form-control" type="date" id="fechaSalida" aria-label="Fecha de salida">
-    </div>
-    <div class="col-md-3">
-      <!-- Botón para abrir el modal -->
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPersonas" style="margin-top: 32px;">Número de personas</button>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>
 
-<!-- Modal para seleccionar número de personas -->
-<div class="modal fade" id="modalPersonas" tabindex="-1" aria-labelledby="modalPersonasLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalPersonasLabel">Número de personas y habitaciones</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Opciones para ajustar el número de adultos, niños y habitaciones -->
-        <div class="mb-3">
-          <label for="adultos" class="form-label">Adultos</label>
-          <div class="input-group">
-            <button class="btn btn-outline-secondary" type="button" (click)="decrementarAdultos()">-</button>
-            <input type="text" class="form-control text-center" value="{{adultos}}" readonly>
-            <button class="btn btn-outline-secondary" type="button" (click)="incrementarAdultos()">+</button>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="ninos" class="form-label">Niños</label>
-          <div class="input-group">
-            <button class="btn btn-outline-secondary" type="button" (click)="decrementarNinos()">-</button>
-            <input type="text" class="form-control text-center" value="{{ninos}}" readonly>
-            <button class="btn btn-outline-secondary" type="button" (click)="incrementarNinos()">+</button>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="habitaciones" class="form-label">Habitaciones</label>
-          <div class="input-group">
-            <button class="btn btn-outline-secondary" type="button" (click)="decrementarHabitaciones()">-</button>
-            <input type="text" class="form-control text-center" value="{{habitaciones}}" readonly>
-            <button class="btn btn-outline-secondary" type="button" (click)="incrementarHabitaciones()">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div class="container mt-4">
   <div class="row">
