@@ -20,7 +20,7 @@ public class LoginController {
 		this.loginService = loginService;
 	}
 
-	@PostMapping("/")
+	@PostMapping("")
 	public ResponseEntity<LoginData> login(@RequestBody LoginData loginData) {
 		LoginData response = loginService.getLogginData(loginData);
         if (response != null) {
